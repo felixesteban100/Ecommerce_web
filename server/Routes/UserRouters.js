@@ -1,5 +1,6 @@
 import express from "express";
 import asyncHandler from "express-async-handler";
+import portect from "../Middleware/AuthMiddleware.js";
 import generateToken from "../utils/generateToken.js";
 import User from "./../Models/UserModel.js";
 
@@ -24,6 +25,28 @@ userRouter.get(
     } else {
       res.status(401)
       throw new Error("Invalid Email or Password");
+    }
+  })
+);
+
+
+// PROFILE
+userRouter.get(
+  "/profile",
+  portect, 
+  asyncHandler(async(req, res) => {
+    const user = await User.findById(req.user._id)
+    if (user) {
+      res.json({
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        isAdmin: user.isAdmin,
+        createAt: user.createdAt,
+      });
+    } else {
+      res.status(404)
+      throw new Error("User not found");
     }
   })
 );
