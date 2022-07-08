@@ -4,7 +4,6 @@ import Product from "./../Models/ProductModel.js";
 
 const productRoute = express.Router()
 
-
 // GET ALL PRODUCTS
 productRoute.get(
     "/", 
@@ -13,7 +12,6 @@ productRoute.get(
         res.json(products);
     })
 );
-
 
 //GET SINGLE PRODUCT
 productRoute.get(
