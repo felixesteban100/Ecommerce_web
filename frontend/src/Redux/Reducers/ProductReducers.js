@@ -1,10 +1,10 @@
-import { PRODUCT_LIST_REGUEST, PRODUCT_LIST_FAIL, PRODUCT_LIST_SUCCESS } from "../Constants/ProductConstants";
+import { PRODUCT_LIST_REQUEST, PRODUCT_LIST_FAIL, PRODUCT_LIST_SUCCESS } from "../Constants/ProductConstants";
 import { PRODUCT_DETAILS_FAIL, PRODUCT_DETAILS_REQUEST, PRODUCT_DETAILS_SUCCESS } from "../Constants/ProductConstants";
 
 // SINGLE PRODUCT 
 export const productListReducer = (state = { products:[] }, action) => {
   switch(action.type){
-    case PRODUCT_LIST_REGUEST:
+    case PRODUCT_LIST_REQUEST:
       return {loading: true, products:[]};
     case PRODUCT_LIST_SUCCESS:
       return {loading: false, products: action.payload};
