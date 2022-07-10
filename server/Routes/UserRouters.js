@@ -1,13 +1,13 @@
 import express from "express";
 import asyncHandler from "express-async-handler";
-import portect from "../Middleware/AuthMiddleware.js";
+import protect from "../Middleware/AuthMiddleware.js";
 import generateToken from "../utils/generateToken.js";
 import User from "./../Models/UserModel.js";
 
 const userRouter = express.Router()
 
 // GET ALL PRODUCTS
-userRouter.get(
+userRouter.post(
   "/login", 
   asyncHandler(async(req, res) => {
     const { email, password } = req.body;
@@ -30,10 +30,47 @@ userRouter.get(
 );
 
 
+// REGISTER 
+userRouter.post(
+  "/",
+  asyncHandler(async (req, res) => {
+    const { name, email, password } = req.body;
+
+    const userExists = await User.findOne({ email });
+
+    if (userExists) {
+      res.status(400);
+      throw new Error("User already exists");
+    }
+
+    const user = await User.create({
+      name,
+      email,
+      password,
+    });
+
+    if (user!=null) {
+      res.status(201).json({
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        isAdmin: user.isAdmin,
+        token: generateToken(user._id)
+      });
+    }
+    else{
+        res.status(400)
+        throw new Error("Invalid User data");
+    }
+
+  })
+);
+
+
 // PROFILE
 userRouter.get(
   "/profile",
-  portect, 
+  protect, 
   asyncHandler(async(req, res) => {
     const user = await User.findById(req.user._id)
     if (user) {
@@ -44,6 +81,34 @@ userRouter.get(
         isAdmin: user.isAdmin,
         createAt: user.createdAt,
       });
+    } else {
+      res.status(404)
+      throw new Error("User not found");
+    }
+  })
+);
+
+// UPDATE PROFILE
+userRouter.put(
+  "/profile",
+  protect, 
+  asyncHandler(async(req, res) => {
+    const user = await User.findById(req.user._id)
+    if (user) {
+      user.name = req.body.name || user.name 
+      user.email = req.body.email || user.email 
+      if (req.body.password) {
+        user.password = req.body.password
+      }
+      const updatedUser = await user.save()
+      res.json({
+        _id: updatedUser._id,
+        name: updatedUser.name,
+        email: updatedUser.email,
+        isAdmin: updatedUser.isAdmin,
+        createAt: updatedUser.createdAt,
+        token: generateToken(updatedUser._id)
+      })
     } else {
       res.status(404)
       throw new Error("User not found");

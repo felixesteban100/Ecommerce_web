@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="justify-content-center d-flex">
-        <div className="card-name">
+        {/* <div className="card-name">
           <img
             alt="mastercard"
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/MasterCard_Logo.svg/1200px-MasterCard_Logo.svg.png"
@@ -33,7 +33,7 @@ const Footer = () => {
             alt="discover"
             src="https://icons-for-free.com/iconfiles/png/512/cash+checkout+discover+network+online+shopping+payment+method-1320191225548835050.png"
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -11,17 +11,19 @@ import { listProductDetails } from "../Redux/Actions/ProductActions";
 
 const SingleProduct = ({ match, history }) => {
   const [qty, setQty] = useState(1);
+  const productId = match.params.id;
   const dispatch = useDispatch();
+
   const productDetails = useSelector((state) => state.productDetails);
-  const { product, loading, error } = productDetails;
+  const { loading, error, product } = productDetails;
 
   useEffect(() => {
-    dispatch(listProductDetails(match.params.id));
-  },[dispatch, match.params.id]);
+    dispatch(listProductDetails(productId));
+  },[dispatch, productId]);
 
   const AddToCartHandle = (e) => {
     e.preventDefault();
-    history.pushState(`/cart/${match.params.id}?qty=${qty}`);
+    history.push(`/cart/${productId}?qty=${qty}`);
   }
   return (
     <>

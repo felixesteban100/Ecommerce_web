@@ -10,7 +10,7 @@ import Loading from "../LoadingError/Loading";
 const ShopSection = () => {
   const dispatch = useDispatch();
 
-  const productList = useSelector(state => state.productList);
+  const productList = useSelector((state) => state.productList);
   const { products, loading, error } = productList;
 
   useEffect(() => {

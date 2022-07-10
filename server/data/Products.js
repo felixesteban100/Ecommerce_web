@@ -35,8 +35,8 @@ const products = [
   },
   {
     /* _id: "4", */
-    name: "Lace Casual Boots For Boys & Girls  (Tan)",
-    image: "/images/3.png",
+    name: "Dell XPS 13 OLED (2021) ",
+    image: "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/dell-client-products/notebooks/xps-notebooks/xps-13-9300/global-spi/ng/silver/notebook-xps-13-9300-silver-campaign-hero-504x350-ng.psd?fmt=jpg",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
     price: 399,

@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import expressAsyncHandler from "express-async-handler";
-import User from "../Models/UserModel";
+import User from "../Models/UserModel.js";
 
 const portect = expressAsyncHandler(
   async (req, res, next) => {
