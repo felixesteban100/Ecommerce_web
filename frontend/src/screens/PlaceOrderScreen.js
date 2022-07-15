@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Header from "./../components/Header";
 import Message from "../components/LoadingError/Error";
-import { createOrder, ORDER_CREATE_RESET } from "../redux/actions/orderActions";
+import { createOrder } from "../Redux/Actions/OrderActions";
+import {ORDER_CREATE_RESET} from "../Redux/Constants/OrderConstants";
 
 const PlaceOrderScreen = ({ history }) => {
   window.scrollTo(0, 0);
@@ -14,18 +15,24 @@ const PlaceOrderScreen = ({ history }) => {
   const {userInfo} = userLogin;
 
   // Calculat Price
-  const addDesimals = (num) => {
+  const addDecimals = (num) => {
     return (Math.round(num * 100) / 100).toFixed(2)
   }
 
-  cart.itemsPrice = addDesimals(
-    cart.cardItems.reduce((acc, item) => acc + item.price * item.qty, 0)
-  )
-  cart.shippingPrice = addDesimals(cart.itemsPrice > 100 ? 0 : 100)
-  cart.taxPrice = addDesimals(Number((0.15 * cart.itemsPrice).toFixed(2)))
-  cart.totalPrice = addDesimals(
+  cart.itemsPrice = addDecimals(
+    cart.cartItems.reduce((acc, item) => acc + item.price * item.qty, 0)
+  );
+  cart.shippingPrice = addDecimals(cart.itemsPrice > 100 ? 0 : 100)
+  cart.taxPrice = addDecimals(Number((0.15 * cart.itemsPrice).toFixed(2)))
+  
+  /* cart.totalPrice = addDecimals(
     Number((cart.itemsPrice + cart.shippingPrice + cart.taxPrice).toFixed(2))
-  )
+  ) */
+  cart.totalPrice = (
+    Number(cart.itemsPrice)+ 
+    Number(cart.shippingPrice)+ 
+    Number(cart.taxPrice)
+  ).toFixed(2);
 
   const orderCreate = useSelector((state) => state.orderCreate);
   const { order, error, success } = orderCreate;
@@ -35,13 +42,15 @@ const PlaceOrderScreen = ({ history }) => {
       history.push(`/order/${order._id}`)
       dispatch({type: ORDER_CREATE_RESET})
     }
-  }, [history, order, success, dispatch])
+  }, [history,dispatch, success,order ])
+
+  console.log(cart);
 
   const placeOrderHandler = (e) => {
     dispatch(
       createOrder({
         orderItems: cart.cartItems,
-        shippingAdress: cart.shippingAdress,
+        shippingAddress: cart.shippingAddress,
         paymentMethod: cart.paymentMethod,
         itemsPrice: cart.itemsPrice,
         shippingPrice: cart.shippingPrice,
@@ -85,7 +94,7 @@ const PlaceOrderScreen = ({ history }) => {
                 <h5>
                   <strong>Order info</strong>
                 </h5>
-                <p>Shipping: {cart.shippingAdress.country}</p>
+                <p>Shipping: {cart.shippingAddress.country}</p>
                 <p>Pay method: {cart.paymentMethod}</p>
               </div>
             </div>
@@ -103,9 +112,12 @@ const PlaceOrderScreen = ({ history }) => {
                   <strong>Deliver to</strong>
                 </h5>
                 <p>
-                  Address: {cart.shippingAdress.city}, {" "} 
-                  {cart.shippingAdress.address}, {" "}, 
-                    {cart.shippingAdress.postalCode}
+                  {/* Address: {cart.shippingAddress.city}, {" "} 
+                  {cart.shippingAddress.address}, {" "}, 
+                  {cart.shippingAddress.postalCode} */}
+                  Address: {cart.shippingAddress.city}, 
+                  {cart.shippingAddress.address},
+                  {cart.shippingAddress.postalCode}
                 </p>
               </div>
             </div>

@@ -13,10 +13,13 @@ const app = express();
 app.use(express.json());
 
 // API 
-app.use("/api/import", ImportData)
-app.use("/api/products", productRoute)
-app.use("/api/users", userRouter)
-app.use("/api/orders", orderRouter)
+app.use("/api/import", ImportData);
+app.use("/api/products", productRoute);
+app.use("/api/users", userRouter);
+app.use("/api/orders", orderRouter);
+app.get("/api/config/paypal", (req,res) =>{
+    res.send(process.env.PAYPAL_CLIENT_ID);
+});
 
 // ERROR HANDLER
 app.use(notFound);

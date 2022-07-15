@@ -42,6 +42,18 @@ orderRouter.post(
   })
 );
 
+// USER LOGIN ORDERS
+orderRouter.get(
+  "/",
+  protect,
+  asyncHandler(async (req, res) => {
+    const order = await Order.find({user:req.user._id}).sort({ _id: -1 });
+    /* const order = await Order.find({ }).sort({ _id: -1 }); */ // de esta forma me funciona el api, pero el frontend no
+    /* esa forma si le quito el "user: req.user._id" todos los usuarios tendran todas las ordenes */
+    res.json(order);
+  })
+);
+
 // GET ORDER BY ID
 orderRouter.get(
   "/:id",
@@ -60,6 +72,8 @@ orderRouter.get(
     }
   })
 );
+
+
 
 // ORDER IS PAID
 orderRouter.put(

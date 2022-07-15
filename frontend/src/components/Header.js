@@ -1,10 +1,13 @@
 import React from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { logout } from "../Redux/Actions/userActions";
 
 const Header = () => {
+  const [keyword, setKeyword] = useState();
   const dispatch = useDispatch();
+  let history = useHistory();
   
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
@@ -13,10 +16,20 @@ const Header = () => {
 
   const logoutHandler = () =>{
     dispatch(logout());
+  };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    if (keyword.trim()) {
+      history.push(`/search/${keyword}`)
+    } else {
+      history.push("/");
+    }
   }
 
   return (
     <div>
+
       {/* Top Header */}
       <div className="Announcement ">
         <div className="container">
@@ -45,9 +58,14 @@ const Header = () => {
           </div>
         </div>
       </div>
+
+
       {/* Header */}
       <div className="header">
         <div className="container">
+          
+          
+
           {/* MOBILE HEADER */}
           <div className="mobile-header">
             <div className="container ">
@@ -55,7 +73,7 @@ const Header = () => {
                 <div className="col-6 d-flex align-items-center">
                   <Link className="navbar-brand" to="/">
                     <img alt="logo" src="https://cdn-icons-png.flaticon.com/512/2920/2920249.png" />
-                    <span>Ecommerce-Tech</span>
+                    <span className="nameecommerce">Ecommerce-Tech</span>
                   </Link>
                 </div>
                 <div className="col-6 d-flex align-items-center justify-content-end Login-Register">
@@ -117,11 +135,12 @@ const Header = () => {
                   </Link>
                 </div>
                 <div className="col-12 d-flex align-items-center">
-                  <form className="input-group">
+                  <form onSubmit={submitHandler} className="input-group">
                     <input
                       type="search"
                       className="form-control rounded search"
                       placeholder="Search"
+                      onChange={(e) => setKeyword(e.target.value)}
                     />
                     <button type="submit" className="search-button">
                       search
@@ -132,6 +151,7 @@ const Header = () => {
             </div>
           </div>
 
+
           {/* PC HEADER */}
           <div className="pc-header">
             <div className="row">
@@ -139,14 +159,16 @@ const Header = () => {
                 <Link className="navbar-brand" to="/">
                   <img alt="logo" src="https://cdn-icons-png.flaticon.com/512/2920/2920249.png" />
                   <span>Ecommerce-Tech</span>
+                  {/* <span className="nameecommerce">Ecommerce-Tech</span> */}
                 </Link>
               </div>
               <div className="col-md-6 col-8 d-flex align-items-center">
-                <form className="input-group">
+                <form onSubmit={submitHandler} className="input-group">
                   <input
                     type="search"
                     className="form-control rounded search"
                     placeholder="Search"
+                    onChange={(e) => setKeyword(e.target.value)}
                   />
                   <button type="submit" className="search-button">
                     search
@@ -200,6 +222,10 @@ const Header = () => {
               </div>
             </div>
           </div>
+
+          
+
+
         </div>
       </div>
     </div>

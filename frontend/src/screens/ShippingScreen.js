@@ -35,7 +35,7 @@ const ShippingScreen = ({ history }) => {
             value={address}
             onChange={(e) => setAddress(e.target.value)}
           />
-          <input type="text" placeholder="Enter city" 
+          <input type="number" placeholder="Enter city" 
             required
             value={city}
             onChange={(e) => setCity(e.target.value)}
@@ -45,7 +45,7 @@ const ShippingScreen = ({ history }) => {
             value={postalCode}
             onChange={(e) => setPostalCode(e.target.value)}
           />
-          <input type="text" placeholder="Enter country" 
+          <input type="number" placeholder="Enter country" 
             required
             value={country}
             onChange={(e) => setCountry(e.target.value)}
