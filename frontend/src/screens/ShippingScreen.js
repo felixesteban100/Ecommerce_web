@@ -24,33 +24,33 @@ const ShippingScreen = ({ history }) => {
   return (
     <>
       <Header />
-      <div className="container d-flex justify-content-center align-items-center login-center">
+      <div className="container d-flex justify-content-center align-items-center login-center de-todo">
         <form
           className="Login col-md-8 col-lg-4 col-11"
           onSubmit={submitHandler}
         >
-          <h6>DELIVERY ADDRESS</h6>
-          <input type="text" placeholder="Enter address" 
+          <h6>DIRECIÓN DE ENVIO</h6>
+          <input type="text" placeholder="Agregar dirección" 
             required
             value={address}
             onChange={(e) => setAddress(e.target.value)}
           />
-          <input type="number" placeholder="Enter city" 
+          <input type="number" placeholder="Agregar ciudad" 
             required
             value={city}
             onChange={(e) => setCity(e.target.value)}
           />
-          <input type="text" placeholder="Enter postal code" 
+          <input type="text" placeholder="Agregar código postal" 
             required
             value={postalCode}
             onChange={(e) => setPostalCode(e.target.value)}
           />
-          <input type="number" placeholder="Enter country" 
+          <input type="number" placeholder="Agregar país" 
             required
             value={country}
             onChange={(e) => setCountry(e.target.value)}
           />
-          <button type="submit">Continue</button>
+          <button type="submit">Continuar</button>
         </form>
       </div>
     </>

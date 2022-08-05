@@ -31,7 +31,7 @@ const Login = ({ location, history }) => {
   return (
     <>
       <Header />
-      <div className="container d-flex flex-column justify-content-center align-items-center login-center">
+      <div className="container d-flex flex-column justify-content-center align-items-center login-center de-todo">
         {error && <Message variant="alert-danger">{error}</Message>}
         {loading && <Loading />}
         <form 
@@ -46,14 +46,14 @@ const Login = ({ location, history }) => {
           />
           <input 
             type="password" 
-            placeholder="Password" 
+            placeholder="Contraseña" 
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="submit">Login</button>
+          <button type="submit">Iniciar sesión</button>
           <p>
             <Link to={redirect ? `/register?redirect=${redirect}` : "/register"}>
-              Create Account
+              Crear cuenta
             </Link>
           </p>
         </form>

@@ -21,7 +21,7 @@ const ShopSection = (props) => {
 
   return (
     <>
-      <div className="container">
+      <div className="container de-todo"> 
         <div className="section">
           <div className="row">
             <div className="col-lg-12 col-md-12 article">

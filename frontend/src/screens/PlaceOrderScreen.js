@@ -64,7 +64,7 @@ const PlaceOrderScreen = ({ history }) => {
   return (
     <>
       <Header />
-      <div className="container">
+      <div className="container de-todo">
         <div className="row  order-detail">
           <div className="col-lg-4 col-sm-4 mb-lg-4 mb-5 mb-sm-0">
             <div className="row ">
@@ -75,7 +75,7 @@ const PlaceOrderScreen = ({ history }) => {
               </div>
               <div className="col-md-8 center">
                 <h5>
-                  <strong>Customer</strong>
+                  <strong>Cliente</strong>
                 </h5>
                 <p>{userInfo.name}</p>
                 <p>{userInfo.email}</p>
@@ -92,10 +92,10 @@ const PlaceOrderScreen = ({ history }) => {
               </div>
               <div className="col-md-8 center">
                 <h5>
-                  <strong>Order info</strong>
+                  <strong>Información de la compra</strong>
                 </h5>
-                <p>Shipping: {cart.shippingAddress.country}</p>
-                <p>Pay method: {cart.paymentMethod}</p>
+                <p>Compra: {cart.shippingAddress.country}</p>
+                <p>Método de pago: {cart.paymentMethod}</p>
               </div>
             </div>
           </div>
@@ -109,13 +109,10 @@ const PlaceOrderScreen = ({ history }) => {
               </div>
               <div className="col-md-8 center">
                 <h5>
-                  <strong>Deliver to</strong>
+                  <strong>Entragar a</strong>
                 </h5>
                 <p>
-                  {/* Address: {cart.shippingAddress.city}, {" "} 
-                  {cart.shippingAddress.address}, {" "}, 
-                  {cart.shippingAddress.postalCode} */}
-                  Address: {cart.shippingAddress.city}, 
+                  Dirección: {cart.shippingAddress.city}, 
                   {cart.shippingAddress.address},
                   {cart.shippingAddress.postalCode}
                 </p>
@@ -128,7 +125,7 @@ const PlaceOrderScreen = ({ history }) => {
           <div className="col-lg-8">
             {
               cart.cartItems.length === 0 ? (
-                <Message variant="alert-info mt-5">Your cart is empty</Message> 
+                <Message variant="alert-info mt-5">Tu carrito está vacío</Message> 
               )
               :
               (
@@ -145,7 +142,7 @@ const PlaceOrderScreen = ({ history }) => {
                         </Link>
                       </div>
                       <div className="mt-3 mt-md-0 col-md-2 col-6  d-flex align-items-center flex-column justify-content-center ">
-                        <h4>QUANTITY</h4>
+                        <h4>CANTIDAD</h4>
                         <h6>{item.qty}</h6>
                       </div>
                       <div className="mt-3 mt-md-0 col-md-2 col-6 align-items-end  d-flex flex-column justify-content-center ">
@@ -166,19 +163,19 @@ const PlaceOrderScreen = ({ history }) => {
               <tbody>
                 <tr>
                   <td>
-                    <strong>Products</strong>
+                    <strong>Productos</strong>
                   </td>
                   <td>${cart.itemsPrice}</td>
                 </tr>
                 <tr>
                   <td>
-                    <strong>Shipping</strong>
+                    <strong>Compra</strong>
                   </td>
                   <td>${cart.shippingPrice}</td>
                 </tr>
                 <tr>
                   <td>
-                    <strong>Tax</strong>
+                    <strong>Impuestos</strong>
                   </td>
                   <td>${cart.taxPrice}</td>
                 </tr>
@@ -193,7 +190,7 @@ const PlaceOrderScreen = ({ history }) => {
             {
               cart.cartItems.length === 0 ? null : (
                 <button type="submit" onClick={placeOrderHandler}>
-                    PLACE ORDER
+                    LUGAR DE LA ORDEN
                 </button>
               )
             }

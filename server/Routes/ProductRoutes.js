@@ -9,7 +9,7 @@ const productRoute = express.Router()
 productRoute.get(
     "/", 
     asyncHandler(async(req, res) => {
-        const pageSize = 3; // ese numero equivale a cuantos productos por pagina 
+        const pageSize = 6; // ese numero equivale a cuantos productos por pagina 
         const page = Number(req.query.pageNumber) || 1
         const keyword = req.query.keyword ? 
         {name:{

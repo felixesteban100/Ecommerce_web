@@ -26,7 +26,7 @@ const ProfileScreen = () => {
   return (
     <>
       <Header />
-      <div className="container mt-lg-5 mt-3">
+      <div className="container de-todo">
         <div className="row align-items-start">
           <div className="col-lg-4 p-0 shadow ">
             <div className="author-card pb-0 pb-md-3">
@@ -40,7 +40,7 @@ const ProfileScreen = () => {
                     <strong>{userInfo.name}</strong>
                   </h5>
                   <span className="author-card-position">
-                    <>Joined {moment(userInfo.createdAt).format('LL')}</>
+                    <>Unido {moment(userInfo.createdAt).format('LL')}</>
                   </span>
                 </div>
               </div>
@@ -63,7 +63,7 @@ const ProfileScreen = () => {
                     aria-controls="v-pills-home"
                     aria-selected="true"
                   >
-                    Profile Settings
+                    Configuración del perfil
                   </button>
                   <button
                     class="nav-link d-flex justify-content-between"
@@ -75,7 +75,7 @@ const ProfileScreen = () => {
                     aria-controls="v-pills-profile"
                     aria-selected="false"
                   >
-                    Orders List
+                    Lista de la orden
                     <span className="badge2">{orders ? orders.length : 0}</span>
                   </button>
                 </div>

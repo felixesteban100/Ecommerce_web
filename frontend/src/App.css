@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
   /* font-family: 'Open Sans', sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -40,22 +40,35 @@ textarea:focus {
   padding: 0;
 }
 .Announcement {
-  background-color: #0f0096; /*TODOS LOS QUE TENGAN ESE COLOR SON EL PRINCIPAL*/
-  padding: 10px 0px 6px 0px;
+  background-color: #ececec;/* #0f0096; */ /*TODOS LOS QUE TENGAN ESE COLOR SON EL PRINCIPAL*/
+  height: 70px;
+  padding: 10px 0px 15px 0px;
 }
-.Announcement .col-md-6 p {
-  color: white;
-  margin-right: 6rem;
-  font-size: 15px;
+
+.centrar--app{
+  height: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  font-size: 30px;
+  
 }
-.Announcement .col-12 a {
-  color: white;
-  margin-right: 2rem;
-  font-size: 15px;
+
+.Announcement .centrar--app a{
+  color: #444;
 }
 /* Header */
 .header {
   padding: 10px 0px 10px 0px;
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  right:0;
+  left: 0;
+  background-color: rgba(150, 150, 150, 0.5);
+  backdrop-filter: blur(2rem);
+  box-shadow: 0 10px 25px rgba(0,0,0, 0.5);
 }
 .navbar-brand img {
   width: 20%;
@@ -117,11 +130,16 @@ textarea:focus {
 }
 
 /* SHOP */
+.de-todo{
+  margin-top: 120px;
+}
+
 .section {
   width: 100%;
   padding-bottom: 6%;
   padding-top: 2%;
 }
+
 .sidebar_item {
   margin-bottom: 35px;
 }
@@ -159,6 +177,7 @@ textarea:focus {
   padding: 15px;
   border: 1px solid #f3f3f3;
   border-radius: 5px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
 }
 .shopBack {
   height: 250px;
@@ -200,16 +219,16 @@ textarea:focus {
 .subscribe-section {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.226), rgba(0, 0, 0, 0.226)),
     /* url("https://sasshoes-com.s3.us-west-2.amazonaws.com/img/banner-uplift-21.jpg") */
-    url("https://images.ctfassets.net/hrltx12pl8hq/4ACnMj4WVSOZRZt0jHu9h5/1506f652bcd70f4dc3e88219fefea858/shutterstock_739595833-min.jpg?fit=fill&w=800&h=300")
+    url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80")
       no-repeat scroll center / cover;
   padding: 100px 0 100px;
 }
 .subscribe-head h2 {
   color: #fff;
-  font-size: 30px;
+  font-size: 40px;
   letter-spacing: 0;
   line-height: 30px;
-  margin: 0 0 13px;
+  margin: 0 20px 20px;
   text-transform: uppercase;
 }
 .subscribe-head p {
@@ -281,7 +300,7 @@ textarea:focus {
 
 /* SINGLE PRODUCT */
 .single-product {
-  margin-top: 50px;
+  margin-top: 150px;
   margin-bottom: 50px;
 }
 .single-image {

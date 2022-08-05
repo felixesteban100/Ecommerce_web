@@ -30,42 +30,11 @@ const Header = () => {
   return (
     <div>
 
-      {/* Top Header */}
-      <div className="Announcement ">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-6 d-flex align-items-center display-none">
-              <p>+255 768 356 890</p>
-              <p>adminFJ@gmail.com</p>
-            </div>
-            <div className=" col-12 col-lg-6 justify-content-center justify-content-lg-end d-flex align-items-center">
-              <Link to="">
-                <i className="fab fa-facebook-f"></i>
-              </Link>
-              <Link to="">
-                <i className="fab fa-instagram"></i>
-              </Link>
-              <Link to="">
-                <i className="fab fa-linkedin-in"></i>
-              </Link>
-              <Link to="">
-                <i className="fab fa-youtube"></i>
-              </Link>
-              <Link to="">
-                <i className="fab fa-pinterest-p"></i>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
       {/* Header */}
       <div className="header">
         <div className="container">
           
           
-
           {/* MOBILE HEADER */}
           <div className="mobile-header">
             <div className="container ">
@@ -91,7 +60,7 @@ const Header = () => {
                         </button>
                         <div className="dropdown-menu">
                           <Link className="dropdown-item" to="/profile">
-                            Profile
+                            Perfil
                           </Link>
 
                           <Link 
@@ -99,7 +68,7 @@ const Header = () => {
                             to="#"
                             onClick={logoutHandler}
                           >
-                            Logout
+                            Cerrar sesión
                           </Link>
                         </div>
                       </div>
@@ -118,11 +87,11 @@ const Header = () => {
                         </button>
                         <div className="dropdown-menu">
                           <Link className="dropdown-item" to="/login">
-                            Login
+                            Iniciar sesión
                           </Link>
 
                           <Link className="dropdown-item" to="/register">
-                            Register
+                            Registrarse
                           </Link>
                         </div>
                       </div>
@@ -139,11 +108,11 @@ const Header = () => {
                     <input
                       type="search"
                       className="form-control rounded search"
-                      placeholder="Search"
+                      placeholder="Buscar"
                       onChange={(e) => setKeyword(e.target.value)}
                     />
                     <button type="submit" className="search-button">
-                      search
+                      Buscar
                     </button>
                   </form>
                 </div>
@@ -167,11 +136,11 @@ const Header = () => {
                   <input
                     type="search"
                     className="form-control rounded search"
-                    placeholder="Search"
+                    placeholder="Buscar"
                     onChange={(e) => setKeyword(e.target.value)}
                   />
                   <button type="submit" className="search-button">
-                    search
+                    Buscar
                   </button>
                 </form>
               </div>
@@ -187,11 +156,11 @@ const Header = () => {
                         aria-haspopup="true"
                         aria-expanded="false"
                       >
-                        Hi, {userInfo.name}
+                        Hola, {userInfo.name}
                       </button>
                       <div className="dropdown-menu">
                         <Link className="dropdown-item" to="/profile">
-                          Profile
+                          Perfil
                         </Link>
 
                         <Link 
@@ -199,7 +168,7 @@ const Header = () => {
                           to="#"
                           onClick={logoutHandler}
                         >
-                          Logout
+                          Cerrar sesión
                         </Link>
                       </div>
                     </div>
@@ -207,8 +176,8 @@ const Header = () => {
                   :
                   (
                     <>
-                      <Link to="/register">Register</Link>
-                      <Link to="/login">Login</Link>
+                      <Link to="/register">Registrarse</Link>
+                      <Link to="/login">Iniciar sesión</Link>
                     </>
                   )
                 }

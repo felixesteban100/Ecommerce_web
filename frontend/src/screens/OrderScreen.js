@@ -69,7 +69,7 @@ const OrderScreen = ({match}) => {
   return (
     <>
       <Header />
-      <div className="container">
+      <div className="container de-todo">
         {
           loading ? (<Loading />) : error ? (<Message variant="alert-danger">{error}</Message>) :
           (
@@ -84,7 +84,7 @@ const OrderScreen = ({match}) => {
                     </div>
                     <div className="col-md-8 center">
                       <h5>
-                        <strong>Customer</strong>
+                        <strong>Cliente</strong>
                       </h5>
                       <p>{order.user.name}</p>
                       <p>
@@ -103,15 +103,15 @@ const OrderScreen = ({match}) => {
                     </div>
                     <div className="col-md-8 center">
                       <h5>
-                        <strong>Order info</strong>
+                        <strong>Información de la orden</strong>
                       </h5>
-                      <p>Shipping: {order.shippingAddress.country}</p>
-                      <p>Pay method: {order.paymentMethod}</p>
+                      <p>Compra: {order.shippingAddress.country}</p>
+                      <p>Método de pago: {order.paymentMethod}</p>
                       {
                         order.isPaid ? (
                           <div className="bg-info p-2 col-12">
                             <p className="text-white text-center text-sm-start">
-                              Paid on {moment(order.paidAt).calendar()}
+                              Pagado en {moment(order.paidAt).calendar()}
                             </p>
                           </div>
                         )
@@ -119,7 +119,7 @@ const OrderScreen = ({match}) => {
                         (
                           <div className="bg-danger p-2 col-12">
                             <p className="text-white text-center text-sm-start">
-                              Not Paid 
+                              Sin pagar 
                             </p>
                           </div>
                         )
@@ -137,10 +137,10 @@ const OrderScreen = ({match}) => {
                     </div>
                     <div className="col-md-8 center">
                       <h5>
-                        <strong>Deliver to</strong>
+                        <strong>Entregar a</strong>
                       </h5>
                       <p>
-                      Address: {order.shippingAddress.city}, {" "} 
+                      Dirección: {order.shippingAddress.city}, {" "} 
                   {order.shippingAddress.address}, {" "}, 
                     {order.shippingAddress.postalCode}
                       </p>
@@ -148,7 +148,7 @@ const OrderScreen = ({match}) => {
                         order.isDelivered ? (
                           <div className="bg-info p-2 col-12">
                             <p className="text-white text-center text-sm-start">
-                            Delivered on {moment(order.deliveredAt).calendar}
+                            Entregar en {moment(order.deliveredAt).calendar}
                             </p>
                           </div>
                         )
@@ -156,7 +156,7 @@ const OrderScreen = ({match}) => {
                         (
                           <div className="bg-danger p-2 col-12">
                             <p className="text-white text-center text-sm-start">
-                              Not Delivered 
+                              Sin entregar 
                             </p>
                           </div>
                         )
@@ -170,7 +170,7 @@ const OrderScreen = ({match}) => {
                 <div className="col-lg-8">
                   {
                     order.orderItems.length === 0 ? (
-                      <Message variant="alert-info mt-5">Your order is empty</Message>
+                      <Message variant="alert-info mt-5">Tu orden está vacía</Message>
                     )
                     :
                     (
@@ -187,7 +187,7 @@ const OrderScreen = ({match}) => {
                                 </Link>
                               </div>
                               <div className="mt-3 mt-md-0 col-6 col-md-2  d-flex align-items-center flex-column justify-content-center ">
-                                <h4>QUANTITY</h4>
+                                <h4>CANTIDAD</h4>
                                 <h6>{item.qty}</h6>
                               </div>
                               <div className="mt-3 mt-md-0 col-md-2 col-6 align-items-end  d-flex flex-column justify-content-center">
@@ -209,19 +209,19 @@ const OrderScreen = ({match}) => {
                     <tbody>
                       <tr>
                         <td>
-                          <strong>Products</strong>
+                          <strong>Productos</strong>
                         </td>
                         <td>${order.itemsPrice}</td>
                       </tr>
                       <tr>
                         <td>
-                          <strong>Shipping</strong>
+                          <strong>Compra</strong>
                         </td>
                         <td>${order.shippingPrice}</td>
                       </tr>
                       <tr>
                         <td>
-                          <strong>Tax</strong>
+                          <strong>Impuestos</strong>
                         </td>
                         <td>${order.taxPrice}</td>
                       </tr>

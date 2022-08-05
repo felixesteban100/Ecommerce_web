@@ -32,7 +32,7 @@ const Register = ({location, history}) => {
   return (
     <>
       <Header />
-      <div className="container d-flex flex-column justify-content-center align-items-center login-center">
+      <div className="container d-flex flex-column justify-content-center align-items-center login-center de-todo">
         {error && <Message variant="alert-danger">{error}</Message>}
         {loading && <Loading />}
         
@@ -42,7 +42,7 @@ const Register = ({location, history}) => {
         >
           <input 
             type="text" 
-            placeholder="Username"
+            placeholder="Nombre de usuario"
             value={name}
             onChange={(e) => setName(e.target.value)} 
           />
@@ -56,15 +56,15 @@ const Register = ({location, history}) => {
           
           <input 
             type="password" 
-            placeholder="Password"
+            placeholder="Contraseña"
             value={password}
             onChange={(e) => setPassword(e.target.value)} 
           />
 
-          <button type="submit">Register</button>
+          <button type="submit">Registrarse</button>
           <p>
             <Link to={redirect ? `/login?redirect=${redirect}` : "/login"}>
-              I Have Account <strong>Login</strong>
+              Tengo una cuenta <strong>Iniciar sesión</strong>
             </Link>
           </p>
         </form>

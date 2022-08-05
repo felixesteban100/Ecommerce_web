@@ -25,7 +25,7 @@ const Orders = (props) => {
                       fontSize: "12px",
                     }}
                   >
-                    START SHOPPING
+                    COMIENZA A COMPRAR
                   </Link>
                 </div>
               ) : (
@@ -34,8 +34,8 @@ const Orders = (props) => {
                     <thead>
                       <tr>
                         <th>ID</th>
-                        <th>STATUS</th>
-                        <th>DATE</th>
+                        <th>ESTADO</th>
+                        <th>FECHA</th>
                         <th>TOTAL</th>
                       </tr>
                     </thead>
