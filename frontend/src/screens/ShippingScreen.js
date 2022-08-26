@@ -35,17 +35,17 @@ const ShippingScreen = ({ history }) => {
             value={address}
             onChange={(e) => setAddress(e.target.value)}
           />
-          <input type="number" placeholder="Agregar ciudad" 
+          <input type="number" placeholder="Agregar codigo de calle" 
             required
             value={city}
             onChange={(e) => setCity(e.target.value)}
           />
-          <input type="text" placeholder="Agregar código postal" 
+          <input type="text" placeholder="Agregar ciudad" 
             required
             value={postalCode}
             onChange={(e) => setPostalCode(e.target.value)}
           />
-          <input type="number" placeholder="Agregar país" 
+          <input type="number" placeholder="Agregar codigo postal" 
             required
             value={country}
             onChange={(e) => setCountry(e.target.value)}
